@@ -1,0 +1,26 @@
+{
+  "name": "ulti-launcher",
+  "version": "0.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "jest",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder -wl --x64 --publish never"
+  },
+  "devDependencies": {
+    "electron": "5.0.13",
+    "electron-builder": "^22.9.1",
+    "jest": "^26.2.2",
+    "run-script-os": "^1.1.3"
+  },
+  "dependencies": {
+    "deasync": "^0.1.20",
+    "electron-config": "^2.0.0",
+    "electron-dl": "^3.0.2",
+    "electron-store": "^6.0.1",
+    "line-reader": "^0.4.0",
+    "n-readlines": "^1.0.1",
+    "request": "^2.88.2"
+  }
+}

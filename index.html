@@ -1,0 +1,85 @@
+<html><head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@font-face { font-family: terminal; src: url('assets/iosevka-ss09-extralight.ttf'); }
+@font-face { font-family: slogan; src: url('assets/EnchantedLand.ttf'); }
+@font-face { font-family: title; src: url('assets/Goldplay Light 300.ttf'); }
+
+html, body {
+  background-image: url('assets/bg.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size:contain;
+  background-color: rgba(155, 155, 155, 1);
+background-position: left; 
+}
+
+.heading {
+  background-color: black;
+  color: white;
+  font-size: 1vw; /* Responsive font size */
+  font-weight: bold;
+  margin: 0 auto; /* Center the text container */
+  padding: 5px;
+  width: 27%;
+  text-align: left; /* Center text */
+  position: fixed; /* Position text */
+  top: 17%; /* Position text in the middle */
+  left: 56.6%; /* Position text in the middle */
+  transform: translate(-50%, -50%); /* Position text in the middle */
+  mix-blend-mode: multiply; /* This makes the cutout text possible */
+}
+
+
+
+</style>
+</head>
+<body>
+<div class="heading">
+	<span style="font-size:6vw;">Thea</span> <span style="font-size:3vw;"><br>Pharmaceuticals </span>
+</div>
+<div class="PR" style="font-weight:1;font-family:title; top:30%; left:42.7%; position: fixed; width:20%;text-shadow: 0px 0px 3px grey;">
+	<span style="font-family:slogan; text-shadow: 0px 0px 2px grey;"><br>Humans, live longer, better, for the future.</span>
+	<p style="font-size:1vh; text-shadow: 0px 0px 0px black;">//////////////////////////////////////////////////////////////////</p>
+The leading edge <br>custom plasmid <br>and <br>reagent supplier in <br>Oncogeneic Research and Prevention
+<br><span style="font-family: terminal; font-size:2.5vh; text-shadow: 0px 0px 2px black; position:fixed; bottom:1%">
+    <i>© Thea Pharmaceuticals,Inc. A registered R&amp;D company, <br>all rights reserved.</i></span>
+</div>
+
+<div id="bars" style="position:fixed; right:-3%;width:30%;font-family:title;z-index:100;
+">
+	<span id="download" style="position: fixed; color: rgb(255, 255, 255); top: 3%; font-size: 8vh; background: rgb(0, 0, 0); left: 73%;">DOWNLOAD</span>
+	<div id="downloadbar" style="position:fixed; top:15.5%; text-shadow: 0px 0px 4px black; padding:0px;font-weight:900;font-size:0.5vh;">▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀</div>
+    
+    <span id="upload" style="position:fixed;color:rgb(255, 255, 255);top:18%; font-size:8vh;background:rgb(0,0,0);left: 73%;">UPLOAD</span>
+    <div id="uploadbar" style="position:fixed;top:30.5%;text-shadow: 0px 0px 4px black; padding:0px;font-weight:900;font-size:0.5vh;">▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀</div>
+    
+    <span id="analyze" style="position:fixed;color:white;  top:33%;font-size:8vh;background:rgba(0,0,0,1);left: 73%;">ANALYZE</span>
+    <div id="analyzebar" style="position:fixed;top:45.5%;text-shadow: 0px 0px 4px black; padding:0px;font-weight:900;font-size:0.5vh;">▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀</div>
+    <span id="init" style="position:fixed;top:50%;color:white;  font-size:9vh;">SysV <br><span> 90% </span>Initing <span id="cursor" style="visibility: visible;">_</span></span>
+</div>
+
+<div id="longMsg" style="position:fixed; bottom:13.5%; overflow:hidden; height:10%; width:50%;right:5%;font-family:terminal; text-shadow: 0px 0px 0px black;color:grey;font-size:1.5vh;"><div id="longMsgTxt" style="position: relative; top: -3388.5px;"></div></div>
+
+<div id="msgOutline" style="position:fixed; bottom:10%; overflow:hidden; height:40%; width:30%;right:3%;font-family:terminal; text-shadow: 0px 0px 0px black;color:black;font-size:1.6vh;display: flex;flex-direction: column-reverse;"></div>
+<script src="lib/downloader.js"></script>
+<script src="lib/logPusher.js"></script>
+<script src="lib/UIUpdater.js"></script>
+<script src="lib/shell.js"></script>
+<script src="driver.js"></script>
+
+<script src="lib/soundPlayer.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
