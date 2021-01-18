@@ -1,5 +1,5 @@
 {
-  "name": "ulti-launcher",
+  "name": "ulti-lobby",
   "version": "0.0.0",
   "main": "main.js",
   "scripts": {
@@ -22,5 +22,15 @@
     "line-reader": "^0.4.0",
     "n-readlines": "^1.0.1",
     "request": "^2.88.2"
+  },
+  "build": {
+    "win": {
+      "target": [
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "lobby.exe"
+    }
   }
 }

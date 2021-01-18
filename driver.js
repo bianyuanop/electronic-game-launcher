@@ -7,11 +7,13 @@ if (window.localVer=="NaN")
 		pushOutline("INFO","Start downloading busybox for Linux.")
 		//downloadFile("http://192.168.1.1:8080","./b.exe",true,dlRemoteVer) //download busybox. callback verDownload
 		downloadFile("http://ultirts.net/electronic-updater/linux/busybox","./busybox.exe",dlRemoteVer)
+		pushOutline("INFO","Busybox download completed")
 	
 	}else{
 		pushOutline("INFO","isLinux: "+isLinux )
 		pushOutline("INFO","Unknown OS, start downloading for likely Windows.")
 		downloadFile("http://ultirts.net/electronic-updater/win/busybox.exe","./busybox.exe",dlRemoteVer)
+		pushOutline("INFO","Busybox download completed")
 	
 	}
 }
