@@ -1,3 +1,4 @@
+const fs = require('fs');
 
 function entry(){
 if (window.localVer=="NaN")
@@ -32,8 +33,8 @@ function verAnalysis(){
 	{	pushOutline("WARN","Remote version content differs from local content, updating local version.")
 		resetTitle("download","DOWNLOAD")
 		titleUpdate("upload","UPLOADED")
-		
-		overwriteVer()}
+		listDownload()
+		}
 	else
 	{	titleUpdate("analyze","ANALYZED")
 		//pushOutline("INFO","Launching")
@@ -72,20 +73,23 @@ function listDownload(){
 	 pushOutline("WARN","downloading"+window.downloads[window.downloads.length-2]+"to"+window.downloads[window.downloads.length-1])
 	 //downloadFile('http://ultirts.net/electronic-updater/linux/engine.zip','./engine.zip',helperLaunch)
 	 downloadFile(String(window.downloads[window.downloads.length-2]),String(window.downloads[window.downloads.length-1]),helperLaunch)
+	 titleUpdate("download","DOWNLOADED")
  }
  
  function helperLaunch(){
 	 pushOutline("INFO","Final setup.")
 	 
-	 resetTitle("download","DOWNLOAD")
+	 
 	 execHelper()
-	 titleUpdate("analyze","ANALYZED")
+	 
  }
  function launch(){
 	 pushOutline("INFO","Launching.")
-	 
+	 stopSound()
 	 //titleUpdate("download","DOWNLOADED")
-	 titleUpdate("upload","UPLOADED")
+	 
+	 titleUpdate("analyze","ANALYZED")
+	 overwriteVer()
 	 execLobby()
 }
  
