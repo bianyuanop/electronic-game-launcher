@@ -33,8 +33,11 @@ background-position: left;
 
 
 </style>
+<link rel="stylesheet" href="style.css">
+
 </head>
-<body>
+<body style="overflow:hidden;">
+
 <div class="heading">
 	<span style="font-size:6vw;">Thea</span> <span style="font-size:3vw;"><br>Pharmaceuticals </span>
 </div>
@@ -47,7 +50,9 @@ The leading edge <br>custom plasmid <br>and <br>reagent supplier in <br>Oncogene
 </div>
 
 <div id="bars" style="position:fixed; right:-3%;width:30%;font-family:title;z-index:100;
-">
+"> 
+
+
 	<span id="download" style="position: fixed; color: rgb(255, 255, 255); top: 3%; font-size: 8vh; background: rgb(0, 0, 0); left: 73%;">DOWNLOAD</span>
 	<div id="downloadbar" style="position:fixed; top:15.5%; text-shadow: 0px 0px 4px black; padding:0px;font-weight:900;font-size:0.5vh;">▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀</div>
     
@@ -62,6 +67,11 @@ The leading edge <br>custom plasmid <br>and <br>reagent supplier in <br>Oncogene
 <div id="longMsg" style="position:fixed; bottom:13.5%; overflow:hidden; height:10%; width:50%;right:5%;font-family:terminal; text-shadow: 0px 0px 0px black;color:grey;font-size:1.5vh;"><div id="longMsgTxt" style="position: relative; top: -3388.5px;"></div></div>
 
 <div id="msgOutline" style="position:fixed; bottom:10%; overflow:hidden; height:40%; width:30%;right:3%;font-family:terminal; text-shadow: 0px 0px 0px black;color:black;font-size:1.6vh;display: flex;flex-direction: column-reverse;"></div>
+<div id="blocker" style="background:rgba(0,0,0,0.4);position:fixed;height:200%;width:200%;top:-50%;left:-50%;z-index:99;">
+	<label class="warning" id="warning" style="background:rgba(255,255,255,1);position:fixed;top:20%;left:35%;font-size:3rem;padding:2%;overflow:hidden;">
+	<center style="font-family: terminal; padding:5%;">DESIGNATE LOCATION</br> OF THIS FILE</center><input type="file" style="display: none;" id="wd">
+	</label>
+</div>
 <script src="lib/downloader.js"></script>
 <script src="lib/logPusher.js"></script>
 <script src="lib/UIUpdater.js"></script>

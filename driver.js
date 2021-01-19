@@ -1,5 +1,14 @@
 const fs = require('fs');
 
+
+document.getElementById('wd').onchange = function(event) {
+	window.wd = path.dirname(document.getElementById('wd').files[0].path);
+	document.getElementById("blocker").style.visibility="hidden";
+	getLocalVer(entry);
+}
+
+
+
 function entry(){
 if (window.localVer=="NaN")
 {
@@ -7,13 +16,13 @@ if (window.localVer=="NaN")
 		pushOutline("INFO","isLinux: "+isLinux )
 		pushOutline("INFO","Start downloading busybox for Linux.")
 		//downloadFile("http://192.168.1.1:8080","./b.exe",true,dlRemoteVer) //download busybox. callback verDownload
-		downloadFile("http://ultirts.net/electronic-updater/linux/busybox","./busybox.exe",dlRemoteVer)
+		downloadFile("http://ultirts.net/electronic-updater/linux/busybox",window.wd+"/busybox.exe",dlRemoteVer)
 		pushOutline("INFO","Busybox download completed")
 	
 	}else{
 		pushOutline("INFO","isLinux: "+isLinux )
 		pushOutline("INFO","Unknown OS, start downloading for likely Windows.")
-		downloadFile("http://ultirts.net/electronic-updater/win/busybox.exe","./busybox.exe",dlRemoteVer)
+		downloadFile("http://ultirts.net/electronic-updater/win/busybox.exe",window.wd+"/busybox.exe",dlRemoteVer)
 		pushOutline("INFO","Busybox download completed")
 	
 	}
@@ -23,7 +32,7 @@ else{
 }
 }
 
-getLocalVer(entry);
+//
 
 
 function verAnalysis(){
@@ -52,11 +61,11 @@ function listDownload(){
 	
 	if (isLinux){
 
-		downloadFile("http://ultirts.net/electronic-updater/linux/list","./list",downloads2List) //download list. callback verDownload
+		downloadFile("http://ultirts.net/electronic-updater/linux/list",window.wd+"/list",downloads2List) //download list. callback verDownload
 		
 	}else{
 
-		downloadFile("http://ultirts.net/electronic-updater/win/list","./list",downloads2List)
+		downloadFile("http://ultirts.net/electronic-updater/win/list",window.wd+"/list",downloads2List)
 		
 	}
 	
@@ -68,11 +77,11 @@ function listDownload(){
 	 pushOutline("INFO","Downloading the actual files.")
 	 for (var i = 0; i < window.downloads.length-2; i +=2 ){
 		pushOutline("WARN","downloading"+window.downloads[i]+"to"+window.downloads[i+1])
-		 downloadFile(String(window.downloads[i]),String(window.downloads[i+1]),nullFunction)
+		downloadFile(String(window.downloads[i]),window.wd+'/'+String(window.downloads[i+1]),nullFunction)
 	 }
 	 pushOutline("WARN","downloading"+window.downloads[window.downloads.length-2]+"to"+window.downloads[window.downloads.length-1])
 	 //downloadFile('http://ultirts.net/electronic-updater/linux/engine.zip','./engine.zip',helperLaunch)
-	 downloadFile(String(window.downloads[window.downloads.length-2]),String(window.downloads[window.downloads.length-1]),helperLaunch)
+	 downloadFile(String(window.downloads[window.downloads.length-2]),window.wd+'/'+String(window.downloads[window.downloads.length-1]),helperLaunch)
 	 titleUpdate("download","DOWNLOADED")
  }
  

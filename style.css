@@ -1,0 +1,21 @@
+ 
+ @keyframes flash {
+
+	 0%   {background-color: rgba(255,255,255,1);}
+	 25%  {background-color: rgba(255,255,255,1);}
+	 50%  {background-color: rgba(255,255,255,1);}
+	 51% {background-color: rgba(255,255,255,0);}
+	 75%  {background-color: rgba(255,255,255,0);}
+	 100% {background-color: rgba(255,255,255,0);}
+ }
+ 
+ 
+ 
+ /* The element to apply the animation to */
+ .warning {
+	
+
+	 animation-name: flash;
+	 animation-duration: 1.7s;
+	 animation-iteration-count: infinite;
+ }
