@@ -1,13 +1,18 @@
 const fs = require('fs');
 
 
-document.getElementById('wd').onchange = function(event) {
-	window.wd = path.dirname(document.getElementById('wd').files[0].path);
-	document.getElementById("blocker").style.visibility="hidden";
-	getLocalVer(entry);
+
+
+function preEntry(){
+	document.getElementById("blocker").style.visibility="visible";
+	document.getElementById('wd').onchange = function(event) {
+		window.wd = path.dirname(document.getElementById('wd').files[0].path);
+		
+		getLocalVer(entry);
+		store.set('window.wd', window.wd);
+		document.getElementById("blocker").style.visibility="hidden";
+	}
 }
-
-
 
 function entry(){
 if (window.localVer=="NaN")

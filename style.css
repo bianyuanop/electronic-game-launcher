@@ -19,3 +19,83 @@
 	 animation-duration: 1.7s;
 	 animation-iteration-count: infinite;
  }
+
+ 
+ 
+ 
+ @keyframes slideIn {
+	 
+	 0%   {opacity:0;left:0%;}
+	 
+	 100% {opacity:1;left:50%;}
+ }
+ 
+ 
+ 
+ /* The element to apply the animation to */
+ .hint {
+	 
+	 
+	 animation-name: slideIn;
+	 animation-duration: 1.7s;
+	 animation-iteration-count: 1;
+ }
+ 
+ 
+ @keyframes cursorFlash {
+	 
+	 0%   {opacity:0;}
+	
+	 50%  {opacity:0;}
+	 51% {opacity:1;}
+	 
+	 100% {opacity:1;}
+ }
+ 
+ 
+ 
+ /* The element to apply the animation to */
+ .haltCursor {
+	 
+	 
+	 animation-name: cursorFlash;
+	 animation-duration: 0.2s;
+	 animation-iteration-count: infinite;
+ }
+ 
+ @keyframes maskMove {
+	 
+	 0%   {left:90%;width:10%;width:10%;}
+	 
+	 50%  {width:50%;left:50%;}
+	 
+	 
+	 100% {width:2%;left:45%;}
+ }
+ 
+ 
+ 
+ /* The element to apply the animation to */
+ .mask {
+	 
+	 
+	 animation-name: maskMove;
+	 animation-duration: 2s;
+	 animation-iteration-count: 1;
+ }
+ .clearCache{
+	 background:black;
+	 color:white;
+	 padding:0.25%;
+	 bottom:1%;
+	 left:1%;
+	 font-family: terminal;
+ }
+ 
+ .clearCache:hover{
+	 background:white;
+	 color:black;
+	 font-family: terminal;
+}
+ 
+ 

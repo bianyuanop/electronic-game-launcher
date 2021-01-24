@@ -37,7 +37,7 @@ background-position: left;
 
 </head>
 <body style="overflow:hidden;">
-
+<div onclick="clearCache()" class="clearCache" id="clearCache" style="position:fixed;z-index:102;">Clear Cache</div>
 <div class="heading">
 	<span style="font-size:6vw;">Thea</span> <span style="font-size:3vw;"><br>Pharmaceuticals </span>
 </div>
@@ -49,8 +49,7 @@ The leading edge <br>custom plasmid <br>and <br>reagent supplier in <br>Oncogene
     <i>© Thea Pharmaceuticals,Inc. A registered R&amp;D company, <br>all rights reserved.</i></span>
 </div>
 
-<div id="bars" style="position:fixed; right:-3%;width:30%;font-family:title;z-index:100;
-"> 
+<div id="bars" style="position:fixed; right:-3%;width:30%;font-family:title;"> 
 
 
 	<span id="download" style="position: fixed; color: rgb(255, 255, 255); top: 3%; font-size: 8vh; background: rgb(0, 0, 0); left: 73%;">DOWNLOAD</span>
@@ -67,18 +66,26 @@ The leading edge <br>custom plasmid <br>and <br>reagent supplier in <br>Oncogene
 <div id="longMsg" style="position:fixed; bottom:13.5%; overflow:hidden; height:10%; width:50%;right:5%;font-family:terminal; text-shadow: 0px 0px 0px black;color:grey;font-size:1.5vh;"><div id="longMsgTxt" style="position: relative; top: -3388.5px;"></div></div>
 
 <div id="msgOutline" style="position:fixed; bottom:10%; overflow:hidden; height:40%; width:30%;right:3%;font-family:terminal; text-shadow: 0px 0px 0px black;color:black;font-size:1.6vh;display: flex;flex-direction: column-reverse;"></div>
-<div id="blocker" style="background:rgba(0,0,0,0.4);position:fixed;height:200%;width:200%;top:-50%;left:-50%;z-index:99;">
-	<label class="warning" id="warning" style="background:rgba(255,255,255,1);position:fixed;top:20%;left:35%;font-size:3rem;padding:2%;overflow:hidden;">
-	<center style="font-family: terminal; padding:5%;">DESIGNATE LOCATION</br> OF THIS FILE</center><input type="file" style="display: none;" id="wd">
+<div id="blocker" style="background:rgba(0,0,0,0.9);position:fixed;height:200%;width:200%;top:-50%;left:-50%;z-index:99;visibility:hidden;">
+	<label class="warning" id="warning" style="background:rgba(255,255,255,1);position:fixed;top:20%;left:2%;font-size:3rem;padding:2%;overflow:hidden;">
+	<center style="font-family: terminal; padding:5%;font-weight:900;">DESIGNATE LOCATION</br> OF THIS FILE</center><input type="file" style="display: none;" id="wd">
 	</label>
+	<p class="hint" style ="position:fixed; top:20%;left:50%;color:white;font-family:title;">「INIT」 init.rc: The launcher cannot find the exact way to init the system</br>
+	「INIT」 init.rc: By pressing the flashing button, please browse up the folder </br>
+	this launcher is in, select the launcher executable, and manually </br>submit it to the launcher so it can 
+	realize its own location.</br>(INITRAMFS) halted<span class="haltCursor"> _</span></p>
+	<div class="mask" style="background:rgba(255,255,255,1);position:fixed;top:20%;width:0.2%;left:45%;height:50%;"></div>
+	
 </div>
 <script src="lib/downloader.js"></script>
 <script src="lib/logPusher.js"></script>
 <script src="lib/UIUpdater.js"></script>
 <script src="lib/shell.js"></script>
+
 <script src="driver.js"></script>
 
 <script src="lib/soundPlayer.js"></script>
+<script src="lib/storage.js"></script>
 
 
 
