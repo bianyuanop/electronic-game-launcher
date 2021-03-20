@@ -67,13 +67,10 @@ The leading edge <br>custom plasmid <br>and <br>reagent supplier in <br>Oncogene
 
 <div id="msgOutline" style="position:fixed; bottom:10%; overflow:hidden; height:40%; width:30%;right:3%;font-family:terminal; text-shadow: 0px 0px 0px black;color:black;font-size:1.6vh;display: flex;flex-direction: column-reverse;"></div>
 <div id="blocker" style="background:rgba(0,0,0,0.9);position:fixed;height:200%;width:200%;top:-50%;left:-50%;z-index:99;visibility:hidden;">
-	<label class="warning" id="warning" style="background:rgba(255,255,255,1);position:fixed;top:20%;left:2%;font-size:3rem;padding:2%;overflow:hidden;">
-	<center style="font-family: terminal; padding:5%;font-weight:900;">DESIGNATE LOCATION</br> OF THIS FILE</center><input type="file" style="display: none;" id="wd">
-	</label>
-	<p class="hint" style ="position:fixed; top:20%;left:50%;color:white;font-family:title;">「INIT」 init.rc: The launcher cannot find the exact way to init the system</br>
-	「INIT」 init.rc: By pressing the flashing button, please browse up the folder </br>
-	this launcher is in, select the launcher executable, and manually </br>submit it to the launcher so it can 
-	realize its own location.</br>(INITRAMFS) halted<span class="haltCursor"> _</span></p>
+	<div class="warning" id="wd" style="width:30vw;background:rgba(255,255,255,1);position:fixed;top:20%;left:2%;font-size:3rem;padding:2%;overflow:hidden;">
+	<center style="font-family: terminal; padding:5%;font-weight:900;">Proceed</center>
+	</div>
+	<p class="hint" id='hint' style ="position:fixed; top:20%;left:50%;color:white;font-family:title;"></p>
 	<div class="mask" style="background:rgba(255,255,255,1);position:fixed;top:20%;width:0.2%;left:45%;height:50%;"></div>
 	
 </div>
@@ -81,7 +78,11 @@ The leading edge <br>custom plasmid <br>and <br>reagent supplier in <br>Oncogene
 <script src="lib/logPusher.js"></script>
 <script src="lib/UIUpdater.js"></script>
 <script src="lib/shell.js"></script>
+<script>
+const rootPath = window.require("electron-root-path").rootPath;
 
+document.getElementById('hint').innerHTML='「INIT」 init.rc: Proceed to install Ultimatum NeuralNet Client to '+rootPath+'?</br>(INITRAMFS) halted<span class="haltCursor"> _</span>'
+</script>
 <script src="driver.js"></script>
 
 <script src="lib/soundPlayer.js"></script>

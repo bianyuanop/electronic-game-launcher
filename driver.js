@@ -5,8 +5,8 @@ const fs = require('fs');
 
 function preEntry(){
 	document.getElementById("blocker").style.visibility="visible";
-	document.getElementById('wd').onchange = function(event) {
-		window.wd = path.dirname(document.getElementById('wd').files[0].path);
+	document.getElementById('wd').onclick = function(event) {
+		window.wd = rootPath
 		
 		getLocalVer(entry);
 		store.set('window.wd', window.wd);
