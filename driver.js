@@ -1,17 +1,37 @@
 const fs = require('fs');
+const {dialog} = require('electron').remote;
 
 
 
 
 function preEntry(){
+
+
+
+
+
 	document.getElementById("blocker").style.visibility="visible";
-	document.getElementById('wd').onchange = function(event) {
-		window.wd = document.getElementById('wd').files[0].path;
-		console.log(window.wd);
+	document.getElementById('wd').onclick = function(event) {
+	
+	
+	var path = dialog.showOpenDialog({
+    	properties: ['openDirectory']
+	});
+	path.then(function(value) {
+ 	 window.wd=value['filePaths'][0]
+ 	 console.log(window.wd);
 		
 		getLocalVer(entry);
 		store.set('window.wd', window.wd);
 		document.getElementById("blocker").style.visibility="hidden";
+	}).catch(err => {
+ 	 console.log(err)
+	});
+	
+	
+	
+		
+		
 	}
 }
 
