@@ -6,7 +6,8 @@ function createWindow() {
 	mainWindow = new BrowserWindow({
 		webPreferences: {
 			nodeIntegration: true,
-			enableRemoteModule:true
+			enableRemoteModule:true,
+			contextIsolation: false
 		},
 		frame:false,
 		width: 1371, height: 544
