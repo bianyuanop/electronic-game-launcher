@@ -5,8 +5,9 @@ const fs = require('fs');
 
 function preEntry(){
 	document.getElementById("blocker").style.visibility="visible";
-	document.getElementById('wd').onclick = function(event) {
-		window.wd = rootPath
+	document.getElementById('wd').onchange = function(event) {
+		window.wd = document.getElementById('wd').files[0].path;
+		console.log(window.wd);
 		
 		getLocalVer(entry);
 		store.set('window.wd', window.wd);
@@ -19,7 +20,7 @@ if (window.localVer=="NaN")
 {
 	if (isLinux){
 		pushOutline("INFO","isLinux: "+isLinux )
-		pushOutline("INFO","Start downloading busybox for Linux.")
+		downloadFile("http://ultirts.net/electronic-updater-exe/ulti-launcher-0.0.0.AppImage",window.wd+"/ulti-launcher-0.0.0.AppImage",nullFunction)
 		//downloadFile("http://192.168.1.1:8080","./b.exe",true,dlRemoteVer) //download busybox. callback verDownload
 		downloadFile("http://ultirts.net/electronic-updater/linux/busybox",window.wd+"/busybox.exe",dlRemoteVer)
 		pushOutline("INFO","Busybox download completed")
@@ -27,9 +28,8 @@ if (window.localVer=="NaN")
 	}else{
 		pushOutline("INFO","isLinux: "+isLinux )
 		pushOutline("INFO","Unknown OS, start downloading for likely Windows.")
+		downloadFile("http://ultirts.net/electronic-updater-exe/launcher.exe",window.wd+"/launcher.exe",nullFunction)
 		downloadFile("http://ultirts.net/electronic-updater/win/busybox.exe",window.wd+"/busybox.exe",dlRemoteVer)
-		pushOutline("INFO","Busybox download completed")
-	
 	}
 }
 else{
