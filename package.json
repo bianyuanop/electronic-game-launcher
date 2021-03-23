@@ -9,7 +9,7 @@
     "dist": "electron-builder -wl --x64 --publish never"
   },
   "devDependencies": {
-    "electron": "5.0.13",
+    "electron": "^12.0.1",
     "electron-builder": "^22.9.1",
     "jest": "^26.2.2",
     "run-script-os": "^1.1.3"

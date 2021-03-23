@@ -1,8 +1,29 @@
 const EventEmitter = require('events')
 const eventEmitter = new EventEmitter()
 
-eventEmitter.on('downloadRemoteVer', () => {
+const {dialog} = require('electron').remote;
+
+eventEmitter.on('start', () => {
+	if(store.has('window.wd')) {
+		window.wd = store.get('window.wd');
+		eventEmitter.emit('locatedFilePath');
+	}else{
+		getPath();
+	}
+})
+
+eventEmitter.on('downloadedBusybox', () => {
   downloadRemoteVer()
+});
+
+eventEmitter.on('checkDownloadsDone', () => {
+	listCounter += 1;
+	console.log(listCounter, "/", listNum);	
+	if(listCounter >= listNum) runShell();
+})
+
+eventEmitter.on('locatedFilePath', () => {
+	downloadBusyBox();
 })
 
 eventEmitter.on('downloadedRemoteVer', () => {
@@ -35,7 +56,7 @@ eventEmitter.on('gotRemoteFiles', () => {
 	runShell()
 })
 
-eventEmitter.on('ShellRan', () => {
+eventEmitter.on('shellRan', () => {
 	saveRemoteVersion()
 	runLobby()
 	 pushOutline("INFO","Launching.")
@@ -45,4 +66,4 @@ eventEmitter.on('ShellRan', () => {
 	 titleUpdate("analyze","ANALYZED")
 })
 
-eventEmitter.emit('downloadRemoteVer')
+eventEmitter.emit('start')
