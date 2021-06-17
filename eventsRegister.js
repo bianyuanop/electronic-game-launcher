@@ -1,69 +1,62 @@
+
+
 const EventEmitter = require('events')
 const eventEmitter = new EventEmitter()
 
-const {dialog} = require('electron').remote;
 
-eventEmitter.on('start', () => {
-	if(store.has('window.wd')) {
-		window.wd = store.get('window.wd');
-		eventEmitter.emit('locatedFilePath');
-	}else{
-		getPath();
-	}
+eventEmitter.on('gotOSVer', () => {
+    getPath();
+	console.log('got OSVER')
 })
 
-eventEmitter.on('downloadedBusybox', () => {
-  downloadRemoteVer()
-});
-
-eventEmitter.on('checkDownloadsDone', () => {
-	listCounter += 1;
-	console.log(listCounter, "/", listNum);	
-	if(listCounter >= listNum) runShell();
+eventEmitter.on('gotPath', () => {
+    getDB();
+	console.log('got path')
 })
 
-eventEmitter.on('locatedFilePath', () => {
-	downloadBusyBox();
+eventEmitter.on('gotDB', () => {
+    getRemoteArchiveCheckSum();
+    getMapAssociation();
+	console.log('got db')
 })
 
-eventEmitter.on('downloadedRemoteVer', () => {
-  getLocalVer()
+eventEmitter.on('gotRemoteArchiveCheckSum', () => {
+    getLocalArchiveCheckSum();
+	console.log('got rCsum')
 })
 
-eventEmitter.on('gotLocalVer', () => {
-  getRemoteVerVer()
+eventEmitter.on('gotLocalArchiveCheckSum', () => {
+    checkForDifference()
+	console.log('got lCsum')
 })
 
-eventEmitter.on('gotRemoteVer', () => {
-  if (window.localVer==window.remoteVer)
-  {
-  	runLobby()
-  }
-  else {
-   downloadRemoteFileList()
-  }
+eventEmitter.on('failedCheckDifference', () => {
+    downloadDifferentArchives()
+	console.log('differential failure')
 })
 
-eventEmitter.on('downloadedRemoteFileList', () => {
-	getRemoteFileList()
+
+
+eventEmitter.on('downloadedDifferentArchives', () => {
+    deletePathes();
+	console.log('partial defferentiate')
 })
 
-eventEmitter.on('gotFileList', () => {
-	downloadRemoteFiles()
+eventEmitter.on('deletedPathes', () => {
+	extractFile()
+	console.log('de path')
+	
 })
 
-eventEmitter.on('gotRemoteFiles', () => {
-	runShell()
+eventEmitter.on('extracted', () => {
+	//checkForDifference()
+	getLocalArchiveCheckSum();
+	console.log('extracted')
 })
 
-eventEmitter.on('shellRan', () => {
-	saveRemoteVersion()
-	runLobby()
-	 pushOutline("INFO","Launching.")
-	 stopSound()
-	 //titleUpdate("download","DOWNLOADED")
-	 
-	 titleUpdate("analyze","ANALYZED")
+eventEmitter.on('extractedLocalArchives', () => {
+    launch();
+	console.log('launching')
 })
 
-eventEmitter.emit('start')
+
